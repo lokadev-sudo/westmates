@@ -1,5 +1,5 @@
 // Westmates service worker: caches the app shell so it opens offline and installs as an app.
-const CACHE = 'westmates-v12';
+const CACHE = 'westmates-v13';
 const SHELL = [
   './',
   './index.html',

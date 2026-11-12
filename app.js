@@ -27,7 +27,8 @@
     share: '<path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5.5A1.5 1.5 0 004 12.5v7A1.5 1.5 0 005.5 21h13a1.5 1.5 0 001.5-1.5v-7a1.5 1.5 0 00-1.5-1.5H18"/>',
     addbox: '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/>',
     dots: '<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',
-    kebab: '<circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/>'
+    kebab: '<circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/>',
+    menu: '<path d="M5 7h14M5 12h14M5 17h9"/>'
   };
   const icon = (name, size = 22, color = 'currentColor', sw = 2) =>
     `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[name]}</svg>`;
@@ -516,7 +517,7 @@
       <ol class="gate-steps">${step(1, `Tap ${chipIc('dots')} or ${chipIc('share')} and choose <b>Open in Safari</b> (or <b>Open in browser</b>).`)}
       ${step(2, `In Safari, follow the iPhone steps on this page.`)}</ol>`;
     if (p === 'ios') return `<ol class="gate-steps">
-      ${step(1, iosOtherBrowser ? `Tap Share ${chipIc('share')} (in Chrome it's in the address bar).` : `In Safari, tap Share ${chipIc('share')}. On iOS 26, tap ${chipIc('dots')} first, then Share.`)}
+      ${step(1, iosOtherBrowser ? `Tap Share ${chipIc('share')} (in Chrome it's in the address bar).` : `In Safari, tap Share ${chipIc('share')}. On iOS 26, first tap the menu ${chipIc('menu')} next to the address, then Share.`)}
       ${step(2, `Tap <b>Add to Home Screen</b> ${chipIc('addbox')}. You may need to scroll down or tap <b>View More</b>.`)}
       ${step(3, `Keep <b>Open as Web App</b> switched on, tap <b>Add</b>, then open Westmates from your home screen.`)}</ol>
       ${iosOtherBrowser ? '<p class="gate-note">Not there? Open this page in Safari and try again.</p>' : ''}`;

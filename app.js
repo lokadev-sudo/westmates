@@ -517,7 +517,7 @@
       <ol class="gate-steps">${step(1, `Tap ${chipIc('dots')} or ${chipIc('share')} and choose <b>Open in Safari</b> (or <b>Open in browser</b>).`)}
       ${step(2, `In Safari, follow the iPhone steps on this page.`)}</ol>`;
     if (p === 'ios') return `<ol class="gate-steps">
-      ${step(1, iosOtherBrowser ? `Tap Share ${chipIc('share')} (in Chrome it's in the address bar).` : `In Safari, tap Share ${chipIc('share')}. On iOS 26, first tap the menu ${chipIc('menu')} next to the address, then Share.`)}
+      ${step(1, iosOtherBrowser ? `Tap Share ${chipIc('share')} (in Chrome it's in the address bar).` : `In Safari, tap Share ${chipIc('share')}. On iOS 26, first tap ${chipIc('menu')} or ${chipIc('dots')} next to the address, then Share.`)}
       ${step(2, `Tap <b>Add to Home Screen</b> ${chipIc('addbox')}. You may need to scroll down or tap <b>View More</b>.`)}
       ${step(3, `Keep <b>Open as Web App</b> switched on, tap <b>Add</b>, then open Westmates from your home screen.`)}</ol>
       ${iosOtherBrowser ? '<p class="gate-note">Not there? Open this page in Safari and try again.</p>' : ''}`;

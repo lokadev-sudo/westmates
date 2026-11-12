@@ -163,9 +163,17 @@ a.card:active, button.card:active { transform: scale(.99); }
   .tabs { background: var(--card); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 .tabs a { position: relative; height: 52px; border-radius: 26px; transition: background .2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; line-height: 14px; color: var(--ink-muted); text-decoration: none; }
-.tabs a[aria-current="page"] { color: var(--ink); font-weight: 600;
+.tabs a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.tabs a { z-index: 1; transition: color .25s; }
+.tabs a[aria-current="page"] svg { animation: tab-pop .38s cubic-bezier(.3,1.6,.5,1); }
+@keyframes tab-pop { 0% { transform: scale(.82); } 60% { transform: scale(1.14); } 100% { transform: scale(1); } }
+.tab-lens { position: absolute; left: 0; top: 5px; height: 52px; border-radius: 26px; z-index: 0; pointer-events: none; transform-origin: center;
+  will-change: transform;
   background: linear-gradient(180deg, var(--glass-pill-top), var(--glass-pill-bottom));
   box-shadow: inset 0 1px 0 var(--glass-shine), 0 1px 4px rgba(20,20,20,.10), inset 0 0 0 .5px var(--glass-edge); }
+/* new screen eases in */
+.view.enter { animation: view-in .26s ease-out; }
+@keyframes view-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .tabs a .dot { position: absolute; }
 
 /* Toast */
@@ -176,4 +184,4 @@ a.card:active, button.card:active { transform: scale(.99); }
 .install { display: flex; align-items: center; gap: 12px; }
 .demo-note { text-align: center; padding: 8px 16px 0; }
 .hidden { display: none !important; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

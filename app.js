@@ -511,14 +511,50 @@
   }
   const SCREENS = { home, holiday, mates, mate, chat, events, event, 'new-event': newEvent, challenges, rewards, checkin, me, support, dashboard };
   let lastName = '';
+  const REDUCED = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Menu bar: links are built once, and a glass "lens" glides to the active tab (with a slight stretch, like iOS).
+  let lensX = null;
+  function renderTabs(tab) {
+    const nav = $('#tabs');
+    if (!nav.querySelector('.tab-lens')) {
+      nav.innerHTML = '<span class="tab-lens" aria-hidden="true"></span>' +
+        TABS.map(([k, l, ic]) => `<a href="#/${k}" data-tab="${k}">${icon(ic, 22)}<span>${l}</span></a>`).join('');
+    }
+    let active = null;
+    nav.querySelectorAll('a').forEach((a) => {
+      if (a.dataset.tab === tab) { a.setAttribute('aria-current', 'page'); active = a; } else a.removeAttribute('aria-current');
+    });
+    moveLens(active, false);
+  }
+  function moveLens(a, instant) {
+    const lens = document.querySelector('#tabs .tab-lens');
+    if (!a || !lens) return;
+    const x = a.offsetLeft, y = a.offsetTop;
+    lens.style.width = a.offsetWidth + 'px'; lens.style.height = a.offsetHeight + 'px'; lens.style.top = y + 'px';
+    if (lensX !== null && Math.abs(lensX - x) > 1 && !instant && !REDUCED() && lens.animate) {
+      const mid = (lensX + x) / 2;
+      lens.animate([
+        { transform: `translateX(${lensX}px) scale(1, 1)` },
+        { transform: `translateX(${mid}px) scale(1.22, .9)`, offset: 0.45 },
+        { transform: `translateX(${x}px) scale(1, 1)` }
+      ], { duration: 460, easing: 'cubic-bezier(.3,.8,.25,1)' });
+    }
+    lens.style.transform = `translateX(${x}px)`;
+    lensX = x;
+  }
+  window.addEventListener('resize', () => moveLens(document.querySelector('#tabs a[aria-current]'), true));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => moveLens(document.querySelector('#tabs a[aria-current]'), true));
   function render() {
     const r = route();
     const fn = SCREENS[r.name] || notFound;
     $('#view').innerHTML = fn(r.id);
     const tab = TAB_OF[r.name] || 'home';
-    $('#tabs').innerHTML = TABS.map(([k, l, ic]) => `<a href="#/${k}" ${tab === k ? 'aria-current="page"' : ''}>${icon(ic, 22)}${l}</a>`).join('');
+    renderTabs(tab);
     document.title = 'Westmates';
-    if (r.name !== lastName) { window.scrollTo(0, 0); $('#view').focus({ preventScroll: true }); }
+    if (r.name !== lastName) {
+      window.scrollTo(0, 0); $('#view').focus({ preventScroll: true });
+      if (lastName && !REDUCED()) { const v = $('#view'); v.classList.remove('enter'); void v.offsetWidth; v.classList.add('enter'); }
+    }
     lastName = r.name;
     if (r.name === 'chat') { const c = $('#chat'); if (c) window.scrollTo(0, document.body.scrollHeight); }
     paintStatusBar();

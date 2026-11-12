@@ -185,3 +185,31 @@ a.card:active, button.card:active { transform: scale(.99); }
 .demo-note { text-align: center; padding: 8px 16px 0; }
 .hidden { display: none !important; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ---------- Install guide (shown when opened in a browser instead of from the home screen) ---------- */
+body.gated .tabs, body.gated .status-fill, body.gated .app::after { display: none; }
+body.gated .app { background: var(--night); }
+body.gated .view { padding-bottom: 0; }
+.gate { min-height: 100vh; min-height: 100dvh; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;
+  padding: calc(env(safe-area-inset-top) + 28px) 18px calc(env(safe-area-inset-bottom) + 24px); color: var(--on-night); }
+.gate-top { position: relative; text-align: center; padding-top: 8px; }
+.gate-top .lights { position: absolute; right: -22px; top: -34px; opacity: .75; }
+.gate-icon { display: block; margin: 0 auto; width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.14); }
+.gate-title { font-family: var(--font-display); font-weight: 600; font-size: 34px; line-height: 40px; margin: 14px 0 2px; color: var(--on-night); }
+.gate-tag { margin: 0; color: var(--lantern); font-size: 16px; }
+.gate-card { background: var(--card); color: var(--ink); border-radius: 24px; padding: 20px 18px; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+.gate-body { margin-top: 14px; }
+.gate-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.gate-steps li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; font-size: 15px; line-height: 22px; }
+.gate-num { width: 30px; height: 30px; border-radius: 50%; background: var(--lantern); color: var(--on-lantern); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+.ic-chip { display: inline-grid; place-items: center; width: 30px; height: 26px; margin: 0 2px; vertical-align: -7px; border-radius: 8px; background: var(--paper); border: 1px solid var(--hairline); color: var(--thames); }
+.gate-note { margin: 12px 0 8px; font-size: 14px; color: var(--ink-muted); }
+.gate-done { display: flex; gap: 8px; align-items: center; margin: 0; font-weight: 600; color: var(--park); }
+.gate-switch { display: flex; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--hairline); }
+.gate-switch .chip { flex: 1; min-height: 40px; padding: 8px 10px; }
+.gate-switch .chip[aria-pressed="true"] { padding: 7px 9px; }
+.gate-qr { display: grid; place-items: center; }
+.gate-qr img { width: 168px; height: 168px; border-radius: 16px; background: #fff; padding: 8px; border: 1px solid var(--hairline); }
+.gate-skip { text-align: center; color: var(--on-night); font-weight: 600; font-size: 15px; }
+.gate-foot { margin: auto 0 0; text-align: center; font-size: 12px; line-height: 17px; color: var(--on-night-muted); }
+.gate .btn.block { display: flex; justify-content: center; gap: 8px; align-items: center; }

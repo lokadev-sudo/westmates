@@ -1,5 +1,5 @@
 // Westmates service worker: caches the app shell so it opens offline and installs as an app.
-const CACHE = 'westmates-v11';
+const CACHE = 'westmates-v12';
 const SHELL = [
   './',
   './index.html',
@@ -10,7 +10,8 @@ const SHELL = [
   './icon-512.png',
   './icon-maskable-512.png',
   './apple-touch-icon.png',
-  './favicon-32.png'
+  './favicon-32.png',
+  './qr.png'
 ];
 
 self.addEventListener('install', (e) => {

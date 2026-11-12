@@ -23,7 +23,11 @@
     phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
     download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
     flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
-    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>'
+    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>',
+    share: '<path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5.5A1.5 1.5 0 004 12.5v7A1.5 1.5 0 005.5 21h13a1.5 1.5 0 001.5-1.5v-7a1.5 1.5 0 00-1.5-1.5H18"/>',
+    addbox: '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/>',
+    dots: '<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',
+    kebab: '<circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/>'
   };
   const icon = (name, size = 22, color = 'currentColor', sw = 2) =>
     `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[name]}</svg>`;
@@ -429,8 +433,8 @@
         <a class="li" href="#/support" style="color:inherit;text-decoration:none">${icon('shield', 20)}<span style="flex:1">Safety and support</span>${icon('next', 18)}</a>
         <a class="li" href="#/dashboard" style="color:inherit;text-decoration:none">${icon('chart', 20, 'var(--thames)')}<span style="flex:1">SU impact dashboard (demo)</span>${icon('next', 18)}</a>
       </div>
-      <div id="install" class="card warm install">${icon('download', 22)}<span style="flex:1"><span class="card-title" style="font-size:15px;display:block">Add Westmates to your home screen</span><span class="small muted" id="install-text">${installText()}</span></span>
-        <button type="button" class="btn primary sm ${deferredPrompt ? '' : 'hidden'}" data-act="install">Install</button></div>
+      ${standalone ? '' : `<div id="install" class="card warm install">${icon('download', 22)}<span style="flex:1"><span class="card-title" style="font-size:15px;display:block">Add Westmates to your home screen</span><span class="small muted" id="install-text">${installText()}</span></span>
+        <button type="button" class="btn primary sm ${deferredPrompt ? '' : 'hidden'}" data-act="install">Install</button></div>`}
       <button type="button" class="btn danger block" data-act="reset">Reset demo</button>
       <p class="tiny muted demo-note">Westmates is a student concept for module 6LEAD001W, not an official University of Westminster app. People, events and numbers are sample data, saved only on this device.</p>
     </div>`;
@@ -490,16 +494,75 @@
   }
 
   // ---------- Install prompt ----------
-  let deferredPrompt = null;
-  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  let deferredPrompt = null, justInstalled = false;
+  const UA = navigator.userAgent;
+  const isIOS = /iphone|ipad|ipod/i.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /android/i.test(UA);
+  const inAppBrowser = /FBAN|FBAV|Instagram|Line\/|Snapchat|musical_ly|Bytedance|TikTok|LinkedInApp|Twitter/i.test(UA);
+  const iosOtherBrowser = isIOS && /CriOS|FxiOS|EdgiOS|OPiOS/i.test(UA);
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true;
+  // Opened as a normal web page: show the install guide instead of the app.
+  // Add ?browser to the link to skip the guide (for laptops and testing); it lasts for that browser tab.
+  function browserBypass() {
+    const asked = new URLSearchParams(location.search).has('browser');
+    try { if (asked) sessionStorage.setItem('wm-browser', '1'); return sessionStorage.getItem('wm-browser') === '1'; } catch (e) { return asked; }
+  }
+  const GATED = !standalone && !browserBypass();
+  let gatePlat = isIOS ? 'ios' : isAndroid ? 'android' : 'desktop';
+  const chipIc = (name) => `<span class="ic-chip">${icon(name, 18, 'currentColor', 2)}</span>`;
+  const step = (n, html) => `<li><span class="gate-num">${n}</span><span>${html}</span></li>`;
+  function gateSteps(p) {
+    if (p === 'ios' && inAppBrowser) return `<p class="gate-note">This page is open inside another app, which can't add Westmates to your home screen.</p>
+      <ol class="gate-steps">${step(1, `Tap ${chipIc('dots')} or ${chipIc('share')} and choose <b>Open in Safari</b> (or <b>Open in browser</b>).`)}
+      ${step(2, `In Safari, follow the iPhone steps on this page.`)}</ol>`;
+    if (p === 'ios') return `<ol class="gate-steps">
+      ${step(1, iosOtherBrowser ? `Tap Share ${chipIc('share')} (in Chrome it's in the address bar).` : `In Safari, tap Share ${chipIc('share')}. On iOS 26, tap ${chipIc('dots')} first, then Share.`)}
+      ${step(2, `Tap <b>Add to Home Screen</b> ${chipIc('addbox')}. You may need to scroll down or tap <b>View More</b>.`)}
+      ${step(3, `Keep <b>Open as Web App</b> switched on, tap <b>Add</b>, then open Westmates from your home screen.`)}</ol>
+      ${iosOtherBrowser ? '<p class="gate-note">Not there? Open this page in Safari and try again.</p>' : ''}`;
+    if (p === 'android') {
+      if (justInstalled) return `<p class="gate-done">${icon('check', 20)} Installed. Open Westmates from your home screen or app list.</p>`;
+      const btn = deferredPrompt ? `<button type="button" class="btn primary block" data-act="install">${icon('download', 20)} Install Westmates</button><p class="gate-note">Or do it from the menu:</p>` : '';
+      return `${btn}<ol class="gate-steps">
+      ${step(1, `In Chrome, tap the menu ${chipIc('kebab')} at the top right.`)}
+      ${step(2, `Tap <b>Install app</b> or <b>Add to Home screen</b>.`)}
+      ${step(3, `Tap <b>Install</b>, then open Westmates from your home screen.`)}</ol>`;
+    }
+    return `<div class="gate-qr"><img src="qr.png" width="168" height="168" alt="QR code for the Westmates link"></div>
+      <p class="gate-note" style="text-align:center">Westmates is made for phones. Scan this with your phone's camera, then add it to your home screen.</p>`;
+  }
+  function gateView() {
+    const tab = (k, l) => `<button type="button" class="chip" data-act="gate-plat" data-val="${k}" aria-pressed="${gatePlat === k}">${l}</button>`;
+    return `<section class="gate">
+      <div class="gate-top">${lights()}
+        <img class="gate-icon" src="icon-192.png" width="84" height="84" alt="Westmates app icon">
+        <h1 class="gate-title">Westmates</h1>
+        <p class="gate-tag">Never spend the break alone.</p>
+      </div>
+      <div class="gate-card">
+        <h2 class="h2" style="margin:0">Add Westmates to your home screen</h2>
+        <p class="small muted" style="margin:6px 0 0">It opens full screen like an app and works offline.</p>
+        <div class="gate-body">${gateSteps(gatePlat)}</div>
+        <div class="gate-switch" role="group" aria-label="Show steps for">${tab('ios', 'iPhone')}${tab('android', 'Android')}${tab('desktop', 'Laptop')}</div>
+      </div>
+      ${gatePlat === 'desktop' ? '<a class="gate-skip" href="?browser#/home">Or open the demo in this browser</a>' : ''}
+      <p class="gate-foot">A student concept for module 6LEAD001W, not an official University of Westminster app.</p>
+    </section>`;
+  }
+  function renderGate() {
+    document.body.classList.add('gated');
+    $('#view').innerHTML = gateView();
+    document.documentElement.style.setProperty('--status-fill', 'transparent');
+    const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', '#141414');
+  }
+  window.addEventListener('appinstalled', () => { justInstalled = true; deferredPrompt = null; if (GATED) renderGate(); });
   function installText() {
     if (standalone) return "It's installed. Open it from your home screen.";
     if (deferredPrompt) return 'Tap Install to add it like an app.';
     if (isIOS) return 'In Safari, tap Share, then "Add to Home Screen".';
     return 'In your browser menu, choose "Install app" or "Add to Home screen".';
   }
-  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; if (route().name === 'me') render(); });
+  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; if (GATED) renderGate(); else if (route().name === 'me') render(); });
 
   // ---------- Router ----------
   const TABS = [['home', 'Home', 'home'], ['mates', 'Mates', 'mates'], ['events', 'Events', 'events'], ['challenges', 'Challenges', 'star'], ['me', 'Me', 'me']];
@@ -545,6 +608,7 @@
   window.addEventListener('resize', () => moveLens(document.querySelector('#tabs a[aria-current]'), true));
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => moveLens(document.querySelector('#tabs a[aria-current]'), true));
   function render() {
+    if (GATED) return renderGate();
     const r = route();
     const fn = SCREENS[r.name] || notFound;
     $('#view').innerHTML = fn(r.id);
@@ -634,8 +698,10 @@
       render();
     } else if (act === 'ci-redo') {
       S.checkins = {}; ci = { phase: 'before', lonely: null, sat: null }; save(); render();
+    } else if (act === 'gate-plat') {
+      gatePlat = el.dataset.val; renderGate();
     } else if (act === 'install' && deferredPrompt) {
-      deferredPrompt.prompt(); deferredPrompt.userChoice.finally(() => { deferredPrompt = null; render(); });
+      deferredPrompt.prompt(); deferredPrompt.userChoice.then((c) => { if (c && c.outcome === 'accepted') justInstalled = true; }).finally(() => { deferredPrompt = null; render(); });
     } else if (act === 'reset') {
       if (confirmReset()) { S = fresh(); save(); ci = { phase: 'before', lonely: null, sat: null }; toast('Demo reset'); location.hash = '#/home'; render(); }
     }

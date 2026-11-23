@@ -1,7 +1,7 @@
 // Westmates service worker: lets the app open offline and install to the home screen.
 // Network first: when online, every open gets the latest files from the server (so updates show up straight away);
 // the saved copy is only used when there is no connection.
-const VERSION = 'westmates-v19';
+const VERSION = 'westmates-v20';
 const SHELL = [
   './',
   './index.html',

@@ -30,8 +30,71 @@
     moon: '<path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/>',
     vibrate: '<rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4.5 9v6M19.5 9v6M2 10.5v3M22 10.5v3"/>',
     kebab: '<circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/>',
-    menu: '<path d="M5 7h14M5 12h14M5 17h9"/>'
+    menu: '<path d="M5 7h14M5 12h14M5 17h9"/>',
+    film: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7.5 5v14M16.5 5v14M3 9.7h4.5M3 14.3h4.5M16.5 9.7H21M16.5 14.3H21"/>',
+    food: '<path d="M3 12h18a9 9 0 01-18 0z"/><path d="M9 8.5c0-1.6 1.2-2 1.2-3.5M13.8 8.5c0-1.6 1.2-2 1.2-3.5"/>',
+    museum: '<path d="M3 9l9-5 9 5z"/><path d="M5.5 11.5v6M10 11.5v6M14 11.5v6M18.5 11.5v6M3 20.5h18"/>',
+    firework: '<path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.3 5.3l2.8 2.8M15.9 15.9l2.8 2.8M5.3 18.7l2.8-2.8M15.9 8.1l2.8-2.8"/><circle cx="12" cy="12" r="1.6"/>',
+    dumpling: '<path d="M2.5 14.5c0-4.4 4.3-7.5 9.5-7.5s9.5 3.1 9.5 7.5c0 1.9-1.6 3-3.5 3h-12c-1.9 0-3.5-1.1-3.5-3z"/><path d="M8 8l1.2 3.5M12 7v4M16 8l-1.2 3.5"/>',
+    tea: '<path d="M4 9.5h13V14a5 5 0 01-5 5H9a5 5 0 01-5-5z"/><path d="M17 11.5h1.5a2.5 2.5 0 010 5H17"/><path d="M8.5 3c0 1.6 1.2 1.6 1.2 3.5M12.5 3c0 1.6 1.2 1.6 1.2 3.5"/>',
+    social: '<path d="M3.5 4.5h11a2 2 0 012 2V12a2 2 0 01-2 2H9l-4 3.5V14H3.5a2 2 0 01-2-2V6.5a2 2 0 012-2z"/><path d="M19 8.5h1.5a2 2 0 012 2V16a2 2 0 01-2 2H19v3l-3.5-3H12"/>',
+    tree: '<path d="M12 21.5v-5"/><path d="M12 2.5L6.5 10h3l-4.5 6.5h14L14.5 10h3z"/>',
+    coffee: '<path d="M4 8h13v5.5a5.5 5.5 0 01-5.5 5.5h-2A5.5 5.5 0 014 13.5z"/><path d="M17 10h1.5a2.5 2.5 0 010 5H17M3 21.5h16M9 2.5c0 1.5 1 1.5 1 3M13 2.5c0 1.5 1 1.5 1 3"/>',
+    ticket: '<path d="M3 7.5a1.5 1.5 0 011.5-1.5h15A1.5 1.5 0 0121 7.5V10a2 2 0 000 4v2.5a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 16.5V14a2 2 0 000-4z"/><path d="M14.5 6v2M14.5 11v2M14.5 16v2"/>',
+    medal: '<circle cx="12" cy="15" r="5.5"/><path d="M8.3 11L5.5 2.5h4.2l2.3 5 2.3-5h4.2L15.7 11"/><path d="M12 12.5l.8 1.6 1.7.2-1.3 1.2.3 1.7-1.5-.8-1.5.8.3-1.7-1.3-1.2 1.7-.2z"/>',
+    smile: '<circle cx="12" cy="12" r="9.5"/><path d="M8 14a4.6 4.6 0 008 0"/><path d="M9 9.5h.01M15 9.5h.01"/>',
+    breathe: '<path d="M3 9h11.5a3 3 0 10-3-3"/><path d="M3 13.5h15a3 3 0 11-3 3"/><path d="M3 18h6"/>',
+    camera: '<path d="M4 7.5h3l2-3h6l2 3h3a1.5 1.5 0 011.5 1.5v9.5a1.5 1.5 0 01-1.5 1.5H4a1.5 1.5 0 01-1.5-1.5V9A1.5 1.5 0 014 7.5z"/><circle cx="12" cy="13.5" r="3.5"/>',
+    music: '<path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+    gym: '<path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11"/>',
+    ball: '<circle cx="12" cy="12" r="9.5"/><path d="M12 7.5l4 2.9-1.5 4.6h-5L8 10.4z"/><path d="M12 2.5v5M16 10.4l5-1.6M14.5 15l3 4.2M9.5 15l-3 4.2M8 10.4L3 8.8"/>',
+    book: '<path d="M4 5.5A2.5 2.5 0 016.5 3H20v15.5H6.5A2.5 2.5 0 004 21z"/><path d="M4 21V5.5M8.5 7.5h7"/>',
+    dice: '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8.5 8.5h.01M15.5 15.5h.01M15.5 8.5h.01M8.5 15.5h.01M12 12h.01" stroke-width="3"/>',
+    clock: '<circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3.2 2"/>',
+    gift: '<rect x="3" y="9" width="18" height="12" rx="2"/><path d="M3 13.5h18M12 9v12"/><path d="M12 9c-1.6-3.8-6-4.2-6-1.6C6 8.6 8 9 12 9zM12 9c1.6-3.8 6-4.2 6-1.6C18 8.6 16 9 12 9z"/>',
+    sparkle: '<path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9z"/><path d="M19 16v4M17 18h4"/>',
+    lamp: '<path d="M4 14c0 2.8 3.6 5 8 5s8-2.2 8-5z"/><path d="M12 14c-2-2-2-4.5 0-7.5 2 3 2 5.5 0 7.5z"/>',
+    crescent: '<path d="M16 3.5A8.5 8.5 0 1020.5 15 7 7 0 0116 3.5z"/>',
+    face0: '<circle cx="12" cy="12" r="9.5"/><path d="M8 16.5a4.6 4.6 0 018 0"/><path d="M9 9.5h.01M15 9.5h.01"/>',
+    face1: '<circle cx="12" cy="12" r="9.5"/><path d="M8.5 15.8c2-1.2 5-1.2 7 0"/><path d="M9 9.5h.01M15 9.5h.01"/>',
+    face2: '<circle cx="12" cy="12" r="9.5"/><path d="M8.5 15h7"/><path d="M9 9.5h.01M15 9.5h.01"/>',
+    face3: '<circle cx="12" cy="12" r="9.5"/><path d="M8.5 14.2c2 1.4 5 1.4 7 0"/><path d="M9 9.5h.01M15 9.5h.01"/>',
+    face4: '<circle cx="12" cy="12" r="9.5"/><path d="M7.5 13.5a4.8 4.8 0 009 0z"/><path d="M9 9.5h.01M15 9.5h.01"/>'
   };
+  // Visual kinds: an icon and a colour family for each type of event, challenge, interest and reward.
+  const KIND = {
+    walk: ['tree', 'park'], film: ['film', 'plum'], food: ['food', 'lantern'], museum: ['museum', 'thames'],
+    fireworks: ['firework', 'night'], dumplings: ['dumpling', 'rose'], wellbeing: ['tea', 'park'], social: ['social', 'thames'],
+    music: ['music', 'plum'], sport: ['ball', 'park'], study: ['book', 'thames'], games: ['dice', 'rose'], photo: ['camera', 'plum']
+  };
+  const guessKind = (t) => {
+    t = String(t).toLowerCase();
+    const rules = [['walk', /walk|park|hike|run/], ['film', /film|movie|cinema/], ['food', /cook|food|dinner|lunch|brunch|eat|jollof|bake/],
+      ['museum', /museum|gallery|exhibit/], ['fireworks', /firework|new year|party/], ['dumplings', /dumpling|lunar/], ['wellbeing', /wellbeing|tea|yoga|breath|mindful/],
+      ['music', /music|gig|concert|karaoke/], ['sport', /football|gym|sport|match/], ['study', /study|revis|library|exam/], ['games', /game|quiz/], ['photo', /photo|camera/]];
+    const hit = rules.find(([, re]) => re.test(t));
+    return hit ? hit[0] : 'social';
+  };
+  const kindOf = (e) => KIND[e.kind] ? e.kind : guessKind(e.title);
+  const tile = (iconName, tone, size = 'md') => `<span class="tile ${size} t-${tone}" aria-hidden="true">${icon(iconName, size === 'lg' ? 44 : size === 'sm' ? 20 : 26, 'currentColor', size === 'lg' ? 1.8 : 2)}</span>`;
+  const eventTile = (e, size) => { const [ic, tone] = KIND[kindOf(e)]; return tile(ic, tone, size); };
+  const INTEREST_ICON = { Walks: 'tree', Films: 'film', Cooking: 'food', 'Board games': 'dice', Gym: 'gym', Museums: 'museum', Music: 'music', 'Study buddy': 'book', Football: 'ball', Photography: 'camera' };
+  const BREAK_ICON = { 'Christmas & New Year': 'tree', 'Lunar New Year': 'dumpling', Eid: 'crescent', Diwali: 'lamp', Easter: 'sparkle', 'Reading week': 'book' };
+  const chipIcon = (map, label) => map[label] ? icon(map[label], 18, 'currentColor', 2) : '';
+  // "Sat 26 Dec · 11am" -> date block; anything else falls back to a calendar icon.
+  function dateParts(when) {
+    const m = String(when).match(/^\s*([A-Za-z]{3})\w*\s+(\d{1,2})\s+([A-Za-z]{3})\w*\s*(?:·\s*(.+))?$/);
+    if (m) return { d: m[2], mo: m[3].toUpperCase(), t: (m[4] || '').trim() };
+    const y = String(when).match(/^\s*([A-Za-z]{3})\w*\s+\d{4}\s*(?:·\s*(.+))?$/);
+    if (y) return { d: '', mo: y[1].toUpperCase(), t: (y[2] || '').trim() };
+    return null;
+  }
+  const dateBlock = (e) => {
+    const p = dateParts(e.when);
+    if (!p) return `<span class="ev-date" aria-hidden="true"><span class="mo">&nbsp;</span><span class="d">${icon('events', 20)}</span></span>`;
+    return `<span class="ev-date" aria-hidden="true"><span class="mo">${esc(p.mo)}</span><span class="d">${esc(p.d || '?')}</span><span class="t">${esc(p.t)}</span></span>`;
+  };
+  const facesFor = (e, n = 3) => { const k = allEvents().indexOf(e); return Array.from({ length: n }, (_, i) => MATES[(Math.max(0, k) * 2 + i) % MATES.length]); };
   const icon = (name, size = 22, color = 'currentColor', sw = 2) =>
     `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[name]}</svg>`;
   const lanternMark = (h = 24) =>
@@ -56,35 +119,35 @@
   ];
 
   const SEED_EVENTS = [
-    { id: 'wellbeing-wed', title: 'Wellbeing Wednesday', cat: 'su', holiday: false, when: 'Wed 18 Nov · 1pm', where: 'Marylebone campus', host: "Students' Union", going: 23, desc: 'A relaxed drop-in run by the SU wellbeing team. Tea, colouring, a chat if you want one.' },
-    { id: 'intl-social', title: "International students' social", cat: 'su', holiday: false, when: 'Fri 20 Nov · 6pm', where: 'Regent Street campus', host: "SU International Community Organiser", going: 41, desc: 'Meet students from all over the world. Food, music and games.' },
-    { id: 'film-night', title: 'Film night, bring snacks', cat: 'student', holiday: false, when: 'Sat 21 Nov · 7pm', where: 'Marylebone halls common room', host: 'Kenji', going: 6, desc: 'We pick the film together on the night. Bring snacks if you like.' },
-    { id: 'boxing-walk', title: "Boxing Day walk: Regent's Park", cat: 'student', holiday: true, when: 'Sat 26 Dec · 11am', where: 'Outside Marylebone campus', host: 'Mei', going: 8, desc: 'About an hour, easy pace, hot drinks after. Everyone welcome.' },
-    { id: 'jollof', title: 'Cook-up: jollof and friends', cat: 'student', holiday: true, when: 'Sun 27 Dec · 5pm', where: 'Amara’s halls kitchen', host: 'Amara', going: 5, desc: 'Bring a dish from home or just bring yourself.' },
-    { id: 'museum', title: 'Free museums day', cat: 'student', holiday: true, when: 'Tue 29 Dec · 12pm', where: 'British Museum entrance', host: 'Priya', going: 7, desc: 'Free entry. We’ll do two galleries and lunch.' },
-    { id: 'nye', title: "New Year's Eve: watch the fireworks together", cat: 'su', holiday: true, when: 'Thu 31 Dec · 9pm', where: 'Meet at Regent Street campus', host: "Students' Union", going: 19, desc: 'Watch party with SU staff, then walk down together. Wrap up warm.' },
-    { id: 'lny', title: 'Lunar New Year dumpling night', cat: 'su', holiday: true, when: 'Feb 2027 · TBC', where: 'Cavendish campus', host: 'SU International Community Organiser', going: 12, desc: 'Make dumplings, learn a few traditions, meet people staying for the festival.' }
+    { id: 'wellbeing-wed', kind: 'wellbeing', title: 'Wellbeing Wednesday', cat: 'su', holiday: false, when: 'Wed 18 Nov · 1pm', where: 'Marylebone campus', host: "Students' Union", going: 23, desc: 'A relaxed drop-in run by the SU wellbeing team. Tea, colouring, a chat if you want one.' },
+    { id: 'intl-social', kind: 'social', title: "International students' social", cat: 'su', holiday: false, when: 'Fri 20 Nov · 6pm', where: 'Regent Street campus', host: "SU International Community Organiser", going: 41, desc: 'Meet students from all over the world. Food, music and games.' },
+    { id: 'film-night', kind: 'film', title: 'Film night, bring snacks', cat: 'student', holiday: false, when: 'Sat 21 Nov · 7pm', where: 'Marylebone halls common room', host: 'Kenji', going: 6, desc: 'We pick the film together on the night. Bring snacks if you like.' },
+    { id: 'boxing-walk', kind: 'walk', title: "Boxing Day walk: Regent's Park", cat: 'student', holiday: true, when: 'Sat 26 Dec · 11am', where: 'Outside Marylebone campus', host: 'Mei', going: 8, desc: 'About an hour, easy pace, hot drinks after. Everyone welcome.' },
+    { id: 'jollof', kind: 'food', title: 'Cook-up: jollof and friends', cat: 'student', holiday: true, when: 'Sun 27 Dec · 5pm', where: 'Amara’s halls kitchen', host: 'Amara', going: 5, desc: 'Bring a dish from home or just bring yourself.' },
+    { id: 'museum', kind: 'museum', title: 'Free museums day', cat: 'student', holiday: true, when: 'Tue 29 Dec · 12pm', where: 'British Museum entrance', host: 'Priya', going: 7, desc: 'Free entry. We’ll do two galleries and lunch.' },
+    { id: 'nye', kind: 'fireworks', title: "New Year's Eve: watch the fireworks together", cat: 'su', holiday: true, when: 'Thu 31 Dec · 9pm', where: 'Meet at Regent Street campus', host: "Students' Union", going: 19, desc: 'Watch party with SU staff, then walk down together. Wrap up warm.' },
+    { id: 'lny', kind: 'dumplings', title: 'Lunar New Year dumpling night', cat: 'su', holiday: true, when: 'Feb 2027 · TBC', where: 'Cavendish campus', host: 'SU International Community Organiser', going: 12, desc: 'Make dumplings, learn a few traditions, meet people staying for the festival.' }
   ];
 
   const CHALLENGES = [
-    { id: 'walk', label: "Walk to Regent's Park with a mate", pts: 20 },
-    { id: 'cook', label: 'Cook something from home and share it', pts: 15 },
-    { id: 'hi', label: 'Say hi to a new mate', pts: 10 },
-    { id: 'breathe', label: 'Try a 10-minute breathing session', pts: 5 },
-    { id: 'event', label: 'Join an event', pts: 10 }
+    { id: 'walk', ic: 'tree', tone: 'park', label: "Walk to Regent's Park with a mate", pts: 20 },
+    { id: 'cook', ic: 'food', tone: 'lantern', label: 'Cook something from home and share it', pts: 15 },
+    { id: 'hi', ic: 'smile', tone: 'rose', label: 'Say hi to a new mate', pts: 10 },
+    { id: 'breathe', ic: 'breathe', tone: 'thames', label: 'Try a 10-minute breathing session', pts: 5 },
+    { id: 'event', ic: 'events', tone: 'plum', label: 'Join an event', pts: 10 }
   ];
 
   const REWARDS = [
-    { id: 'coffee', title: 'Coffee on campus', cost: 300, note: 'At a partner campus café' },
-    { id: 'award', title: 'Westminster Award points', cost: 500, note: 'Counts towards your Westminster Award' },
-    { id: 'cinema', title: 'SU cinema ticket', cost: 400, note: 'Student film night' }
+    { id: 'coffee', ic: 'coffee', tone: 'lantern', title: 'Coffee on campus', cost: 300, note: 'At a partner campus café' },
+    { id: 'award', ic: 'medal', tone: 'thames', title: 'Westminster Award points', cost: 500, note: 'Counts towards your Westminster Award' },
+    { id: 'cinema', ic: 'ticket', tone: 'plum', title: 'SU cinema ticket', cost: 400, note: 'Student film night' }
   ];
 
   const LONELY = ['Often or always', 'Some of the time', 'Occasionally', 'Hardly ever', 'Never'];
 
   // ---------- State ----------
   const KEY = 'westmates-demo-v1';
-  const APP_VERSION = '19';   // shown at the bottom of the Me page
+  const APP_VERSION = '20';   // shown at the bottom of the Me page
   const today = () => new Date().toISOString().slice(0, 10);
   const fresh = () => ({
     name: 'Alex',
@@ -141,51 +204,66 @@
     <header class="band">
       <div class="row between">
         <div class="wordmark">${lanternMark(24)}<span>Westmates</span></div>
-        <a class="pill-badge" href="#/challenges" aria-label="${S.points} points">${S.points} pts</a>
+        <a class="pill-badge" href="#/challenges" aria-label="${S.points} points">${icon('star', 14, 'currentColor', 2.4)}${S.points} pts</a>
       </div>
       <p class="small muted" style="margin:0">Hi ${esc(S.name)}</p>
       <h1 class="h1">${hm ? 'Your break in London' : "What's on this week"}</h1>
     </header>
     <div class="content">
       ${hm ? `
-      <section class="card warm">
+      <section class="card warm holiday-card">
+        <span class="holiday-art" aria-hidden="true">${lanternMark(42)}</span>
         <span class="label amber">Holiday mode is on</span>
+        <span class="stack" style="margin:4px 0 2px">${MATES.filter((m) => m.staying).slice(0, 5).map((m) => avatar(m, 'sm')).join('')}</span>
         <span class="card-title">${MATES.filter((m) => m.staying).length} mates are staying in London too.</span>
         <span class="small muted">Breaks: ${esc(S.holiday.breaks.join(', '))}</span>
         <div class="row" style="margin-top:6px"><a class="btn primary sm" href="#/mates">See your mates</a><a class="btn secondary sm" href="#/holiday">Edit</a></div>
       </section>` : `
-      <section class="card warm">
+      <section class="card warm holiday-card">
+        <span class="holiday-art" aria-hidden="true">${lanternMark(42)}</span>
         <span class="label amber">Holiday mode</span>
         <span class="card-title" style="font-size:18px;line-height:24px">Campus closes for the winter break soon.</span>
         <span class="small muted">Staying in London? Find mates who are staying too.</span>
         <a class="btn primary" href="#/holiday" style="align-self:flex-start;margin-top:6px">Set up holiday mode</a>
       </section>`}
-      <a class="card" href="#/challenges">
-        <span class="label green">Today's challenges · ${doneCount}/${CHALLENGES.length} done</span>
-        <span class="card-title">${doneCount < CHALLENGES.length ? esc(CHALLENGES.find((c) => !S.done.ids.includes(c.id)).label) : 'All done today. Nice one!'}</span>
-        <span class="small muted">${esc(coffeeGoal())}</span>
-      </a>
+      ${(() => { const nextC = CHALLENGES.find((c) => !S.done.ids.includes(c.id)); return `<a class="card ev" href="#/challenges">
+        ${nextC ? tile(nextC.ic, nextC.tone) : tile('check', 'park')}
+        <span class="ev-info">
+          <span class="label green">Today's challenge · ${doneCount}/${CHALLENGES.length} done</span>
+          <span class="card-title">${nextC ? esc(nextC.label) : 'All done today. Nice one!'}</span>
+          <span class="dots" aria-hidden="true">${CHALLENGES.map((c) => `<i class="${S.done.ids.includes(c.id) ? 'on' : ''}"></i>`).join('')}</span>
+        </span>
+        ${nextC ? `<span class="pts-badge">+${nextC.pts}</span>` : ''}
+      </a>`; })()}
       <div class="row between"><h2 class="h2">${hm ? 'Holiday events' : 'From the SU, the uni and students'}</h2><a class="small" href="#/events" style="font-weight:600">All</a></div>
       ${upcoming.map(eventCard).join('')}
-      <a class="card blue" href="#/checkin">
-        <span class="label blue">1-minute check-in</span>
-        <span class="card-title">How are you doing this week?</span>
-        <span class="small muted">Anonymous. Helps show whether Westmates works.</span>
+      <a class="card blue ev" href="#/checkin">
+        <span class="faces-row" aria-hidden="true">${[0, 2, 4].map((n) => icon('face' + n, 26, 'var(--thames)', 1.8)).join('')}</span>
+        <span class="ev-info">
+          <span class="label blue">1-minute check-in</span>
+          <span class="card-title">How are you doing this week?</span>
+          <span class="small muted">Anonymous. Helps show whether Westmates works.</span>
+        </span>
       </a>
     </div>`;
   }
 
   function eventCard(e) {
     const going = e.going + (S.joined.includes(e.id) ? 1 : 0);
-    return `<a class="card" href="#/event/${e.id}">
-      <div class="row between">${catLabel(e)}${S.joined.includes(e.id) ? '<span class="label green">Going</span>' : ''}</div>
-      <span class="card-title">${esc(e.title)}</span>
-      <span class="small muted">${esc(e.when)} · ${going} going</span>
+    const p = dateParts(e.when);
+    return `<a class="card ev" href="#/event/${e.id}">
+      ${eventTile(e)}
+      <span class="ev-info">
+        <span class="row" style="gap:8px">${catLabel(e)}${S.joined.includes(e.id) ? '<span class="label green">· Going</span>' : ''}</span>
+        <span class="card-title">${esc(e.title)}</span>
+        <span class="ev-meta">${going ? `<span class="stack">${facesFor(e, Math.min(3, going)).map((m) => avatar(m, 'xs')).join('')}</span>` : ''}<span class="tiny muted">${going} going${p ? '' : ' · ' + esc(e.when)}</span></span>
+      </span>
+      ${dateBlock(e)}
     </a>`;
   }
 
   function holiday() {
-    const chip = (label, list) => `<button type="button" class="chip" data-act="toggle-${list}" data-val="${esc(label)}" aria-pressed="${S.holiday[list].includes(label)}">${esc(label)}</button>`;
+    const chip = (label, list) => `<button type="button" class="chip" data-act="toggle-${list}" data-val="${esc(label)}" aria-pressed="${S.holiday[list].includes(label)}">${chipIcon(list === 'breaks' ? BREAK_ICON : INTEREST_ICON, label)}${esc(label)}</button>`;
     return `
     <header class="band">
       ${back('#/home', 'Home', true)}
@@ -224,9 +302,9 @@
       <a class="card mate" href="#/mate/${m.id}">
         ${avatar(m)}
         <span class="info">
-          <span class="card-title">${esc(m.name)}${m.staying ? ' <span class="label amber" style="margin-left:4px">Staying</span>' : ''}</span>
+          <span class="card-title">${esc(m.name)}${m.staying ? ` <span class="staying" title="Staying in London">${lanternMark(14)}</span>` : ''}</span>
           <span class="small muted">${esc(m.course)}</span>
-          <span class="small green" style="font-weight:600">${s.length ? 'Both into ' + esc(s.join(', ').toLowerCase()) : 'New interests to try'}</span>
+          <span class="mini-chips">${m.interests.map((i) => `<span class="mini ${s.includes(i) ? 'on' : ''}">${chipIcon(INTEREST_ICON, i)}${esc(i)}</span>`).join('')}</span>
         </span>
         ${icon('next', 20)}
       </a>`).join('')}
@@ -249,7 +327,7 @@
       <h1 class="h1">${esc(m.name)}</h1>
       <p class="small muted" style="margin:-6px 0 0">${esc(m.course)} · from ${esc(m.from)}</p>
       ${m.staying ? '<span class="tag amber">Staying in London this break</span>' : '<span class="tag line muted">Home for the break</span>'}
-      <div class="chips" style="justify-content:center">${m.interests.map((i) => `<span class="chip" aria-pressed="${s.includes(i)}" style="cursor:default">${esc(i)}</span>`).join('')}</div>
+      <div class="chips" style="justify-content:center">${m.interests.map((i) => `<span class="chip" aria-pressed="${s.includes(i)}" style="cursor:default">${chipIcon(INTEREST_ICON, i)}${esc(i)}</span>`).join('')}</div>
       <a class="btn primary block" href="#/chat/${m.id}">${S.chats[m.id] ? 'Open chat' : 'Say hi'}</a>
       <div class="row" style="gap:20px">
         <button type="button" class="link-btn red" data-act="report" data-val="${esc(m.name)}">Report</button>
@@ -298,25 +376,26 @@
     const j = S.joined.includes(e.id);
     const mine = e.id.startsWith('my-');
     const going = e.going + (j ? 1 : 0);
-    const faces = MATES.slice(0, 3);
+    const faces = facesFor(e);
     return `
     <header class="band">
       ${back('#/events', 'Events', true)}
-      <div class="row" style="flex-wrap:wrap">${e.holiday ? '<span class="tag amber">Holiday</span>' : ''}<span class="tag line">${e.cat === 'su' ? 'SU &amp; uni' : 'By a student'}</span></div>
-      <h1 class="h1 big">${esc(e.title)}</h1>
+      <span class="ev-hero">${eventTile(e, 'lg')}</span>
+      <div class="row" style="flex-wrap:wrap;padding-right:96px">${e.holiday ? '<span class="tag amber">Holiday</span>' : ''}<span class="tag line">${e.cat === 'su' ? 'SU &amp; uni' : 'By a student'}</span></div>
+      <h1 class="h1 big" style="padding-right:84px">${esc(e.title)}</h1>
       <p class="small muted" style="margin:0">Hosted by ${esc(e.host)}</p>
     </header>
     <div class="content">
       <div class="list">
         <div class="li">${icon('events', 20, 'var(--thames)')}<span>${esc(e.when)}</span></div>
         <div class="li">${icon('pin', 20, 'var(--thames)')}<span>${esc(e.where)}</span></div>
-        <div class="li">${icon('walk', 20, 'var(--thames)')}<span>${esc(e.desc)}</span></div>
+        <div class="li">${icon(KIND[kindOf(e)][0], 20, 'var(--thames)')}<span>${esc(e.desc)}</span></div>
       </div>
       ${mine ? `<div class="card warm"><span class="label amber">You're hosting</span><span class="card-title">+15 pts added for posting it.</span><span class="small muted">Mates who are staying will see it in Events. Keep the first meet-up in a public place.</span></div>`
       : `<div class="row"><span class="stack">${faces.map((m) => avatar(m, 'sm')).join('')}</span><strong>${j ? `You and ${going - 1} others are going` : `${going} going`}</strong></div>`}
       ${mine ? '' : j ? `<button type="button" class="btn outline-green block" data-act="leave" data-val="${e.id}">${icon('check', 20)}You're going · tap to leave</button>
              <p class="small green" style="margin:0;text-align:center;font-weight:600">+10 pts added. Check in on the day for +20 more.</p>`
-          : `<button type="button" class="btn primary block" data-act="join" data-val="${e.id}">Join · +10 pts</button>`}
+          : `<button type="button" class="btn primary block" data-act="join" data-val="${e.id}">Join <span class="btn-pts">+10 pts</span></button>`}
       <div class="row between" style="margin-top:4px">
         <button type="button" class="link-btn red" data-act="report" data-val="${esc(e.title)}">Report event</button>
         <a class="link-btn" href="#/support">Need help now?</a>
@@ -334,7 +413,7 @@
       <div class="field"><label for="ev-where">Where?</label><input id="ev-where" name="where" class="input" required maxlength="60" placeholder="e.g. Outside Regent Street campus"></div>
       <div class="field"><label for="ev-desc">Anything else?</label><textarea id="ev-desc" name="desc" class="input" rows="3" maxlength="200" placeholder="Optional"></textarea></div>
       <label class="row small" style="min-height:44px;cursor:pointer"><input type="checkbox" name="holiday" ${S.holiday.on ? 'checked' : ''} style="width:22px;height:22px"> It's during a break (holiday event)</label>
-      <button class="btn primary block">Post event · +15 pts</button>
+      <button class="btn primary block">Post event <span class="btn-pts">+15 pts</span></button>
     </form>`;
   }
 
@@ -343,21 +422,28 @@
     return `
     <header class="band">
       <span class="label amber">Your points</span>
-      <div class="row" style="align-items:baseline"><span style="font:600 44px/48px var(--font-display);letter-spacing:-.02em">${S.points}</span><span class="small muted">pts</span></div>
-      <div class="bar" role="img" aria-label="${esc(coffeeGoal())}"><div style="width:${pct}%"></div></div>
-      <p class="small muted" style="margin:0">${esc(coffeeGoal())}</p>
+      <div class="row" style="gap:18px">
+        <span class="ring" role="img" aria-label="${esc(coffeeGoal())}">
+          <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="9"/>
+          <circle cx="48" cy="48" r="40" fill="none" stroke="var(--lantern)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${(2 * Math.PI * 40).toFixed(1)}" stroke-dashoffset="${(2 * Math.PI * 40 * (1 - pct / 100)).toFixed(1)}" transform="rotate(-90 48 48)"/></svg>
+          <span class="ring-ic">${icon('coffee', 30, 'var(--lantern)', 2)}</span>
+        </span>
+        <div><div class="row" style="align-items:baseline;gap:6px"><span style="font:600 44px/48px var(--font-display);letter-spacing:-.02em">${S.points}</span><span class="small muted">pts</span></div>
+        <p class="small muted" style="margin:2px 0 0;max-width:180px">${esc(coffeeGoal())}</p></div>
+      </div>
     </header>
     <div class="content">
       <h2 class="h2">Today's challenges</h2>
       ${CHALLENGES.map((c) => {
         const on = S.done.ids.includes(c.id);
         return `<button type="button" class="task" data-act="task" data-val="${c.id}" aria-pressed="${on}">
-          <span class="tick">${on ? icon('check', 16, '#fff', 3) : ''}</span>
+          ${tile(c.ic, c.tone, 'sm')}
           <span class="t-label" style="flex:1">${esc(c.label)}</span>
-          <span class="green" style="font-weight:600;font-size:14px">+${c.pts}</span></button>`;
+          <span class="tick">${on ? icon('check', 16, '#fff', 3) : ''}</span>
+          <span class="green task-pts">+${c.pts}</span></button>`;
       }).join('')}
       <div class="row between"><h2 class="h2">Rewards</h2><a class="small" href="#/rewards" style="font-weight:600">See all</a></div>
-      <div class="grid2">${REWARDS.slice(0, 2).map((r) => `<a class="card ${r.id === 'coffee' ? 'warm' : ''}" href="#/rewards"><span class="card-title" style="font-size:15px">${esc(r.title)}</span><span class="small amber" style="font-weight:600">${r.cost} pts</span></a>`).join('')}</div>
+      <div class="grid2">${REWARDS.slice(0, 2).map((r) => `<a class="card reward ${r.id === 'coffee' ? 'warm' : ''}" href="#/rewards">${tile(r.ic, r.tone)}<span class="card-title" style="font-size:15px">${esc(r.title)}</span><span class="small amber" style="font-weight:600">${r.cost} pts</span></a>`).join('')}</div>
       <p class="small muted" style="margin:0">Points are a thank-you. The best bit is the people.</p>
     </div>`;
   }
@@ -370,7 +456,7 @@
       ${REWARDS.map((r) => {
         const got = S.redeemed.filter((x) => x.id === r.id);
         return `<div class="card">
-          <span class="card-title">${esc(r.title)}</span>
+          <div class="row" style="gap:12px">${tile(r.ic, r.tone)}<span class="card-title">${esc(r.title)}</span></div>
           <span class="small muted">${esc(r.note)}</span>
           <div class="row between" style="margin-top:6px"><span class="amber" style="font-weight:600">${r.cost} pts</span>
           <button type="button" class="btn ${S.points >= r.cost ? 'primary' : 'secondary'} sm" data-act="redeem" data-val="${r.id}" ${S.points >= r.cost ? '' : 'disabled'}>${S.points >= r.cost ? 'Redeem' : `${r.cost - S.points} pts to go`}</button></div>
@@ -395,14 +481,14 @@
     <div class="content">
       <fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
         <legend class="h2" style="font-size:16px;margin-bottom:8px">How often do you feel lonely?</legend>
-        ${LONELY.map((o, i) => `<button type="button" class="opt" data-act="ci-lonely" data-val="${i}" aria-pressed="${ci.lonely === i}">${o}</button>`).join('')}
+        ${LONELY.map((o, i) => `<button type="button" class="opt" data-act="ci-lonely" data-val="${i}" aria-pressed="${ci.lonely === i}">${icon('face' + i, 24, 'currentColor', 1.8)}<span>${o}</span></button>`).join('')}
       </fieldset>
       <fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
         <legend class="h2" style="font-size:16px;margin-bottom:8px">Overall, how satisfied are you with your life nowadays?</legend>
         <div class="scale">${Array.from({ length: 11 }, (_, n) => `<button type="button" data-act="ci-sat" data-val="${n}" aria-pressed="${ci.sat === n}" aria-label="${n} out of 10">${n}</button>`).join('')}</div>
-        <div class="row between tiny muted"><span>Not at all</span><span>Completely</span></div>
+        <div class="row between tiny muted"><span class="row" style="gap:4px">${icon('face0', 18, 'currentColor', 1.8)}Not at all</span><span class="row" style="gap:4px">Completely${icon('face4', 18, 'currentColor', 1.8)}</span></div>
       </fieldset>
-      <button type="button" class="btn primary block" data-act="ci-send" ${ci.lonely === null || ci.sat === null ? 'disabled' : ''}>Send check-in · +5 pts</button>
+      <button type="button" class="btn primary block" data-act="ci-send" ${ci.lonely === null || ci.sat === null ? 'disabled' : ''}>Send check-in <span class="btn-pts">+5 pts</span></button>
       ${b && !a ? '<p class="tiny muted" style="margin:0;text-align:center">Demo tip: this is the after-the-break check-in. Send it to see your change.</p>' : ''}
       <a class="card" href="#/support"><span class="card-title" style="font-size:15px">Struggling right now?</span><span class="small muted">See support that's open 24/7, all break.</span></a>
     </div>`;
@@ -784,7 +870,7 @@
     if (f.dataset.form === 'chat') { const v = d.get('msg'); sendChat(f.dataset.id, v || ''); const i = $('#msg'); if (i) i.focus(); }
     else if (f.dataset.form === 'event') {
       const e = { id: 'my-' + Date.now().toString(36), title: d.get('title'), when: d.get('when'), where: d.get('where'), desc: d.get('desc') || 'Hosted by a Westmates student.',
-        cat: 'student', holiday: d.get('holiday') === 'on', host: S.name + ' (you)', going: 0 };
+        cat: 'student', holiday: d.get('holiday') === 'on', host: S.name + ' (you)', going: 0 }; e.kind = guessKind(e.title + ' ' + e.desc);
       S.myEvents.unshift(e); S.joined.push(e.id); addPoints(15, 'Created: ' + e.title); toast('Event posted · +15 pts');
       location.hash = '#/event/' + e.id;
     } else if (f.dataset.form === 'name') {
